@@ -1,0 +1,32 @@
+<%= form_for(movie,:html => {'data-parsley-validate'=>''}) do |f| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :placeholder => "Title" , class: 'form-control ', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Title is required"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :release_year %>
+    <%= f.text_field :release_year, :placeholder => "Release Year", class: 'form-control ', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Release Year is required" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rating %>
+    <%= f.select :rating, options_for_select(AppConfig['rating'],movie.rating.to_i),{prompt: 'Select Rating'}, class: 'form-control ', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Rating is required" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
