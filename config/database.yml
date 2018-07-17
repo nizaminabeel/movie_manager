@@ -47,8 +47,6 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-#production:
-#  <<: *default
-#  database: salesdoor_production
-#  username: salesdoor
-#  password: <%= ENV['SALESDOOR_DATABASE_PASSWORD'] %>
+production:
+  <<: *default
+  database: movie_manager_production

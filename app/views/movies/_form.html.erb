@@ -1,32 +1,46 @@
-<%= form_for(movie,:html => {'data-parsley-validate'=>''}) do |f| %>
-  <% if movie.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+<section class="demoReqst-sec demoReqst-page sec-spacing padding-top-5 padding-left-20">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12 pull-left padding-top-30">
+        <div class="well well-lg">
+          <div class="request-form-show">
+            <h3 class="text-center"> <%= params[:action] == 'new' ? 'Add Movie': 'Edit Movie' %></h3>
 
-      <ul>
-      <% movie.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <%= form_for(movie,:html => {class: 'request_form','data-parsley-validate'=>''}) do |f| %>
+                <% if movie.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+                      <ul>
+                        <% movie.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                <% end %>
+
+                <div class="form-group">
+                  <%= f.label :title %>
+                  <%= f.text_field :title, :placeholder => "Title" , class: "form-control", 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Title is required"%>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :release_year %>
+                  <%= f.text_field :release_year, :placeholder => "Release Year", class: "form-control", 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Release Year is required" %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :rating %>
+                  <%= f.select :rating, options_for_select(AppConfig['rating'],movie.rating.to_i),{prompt: 'Select Rating'}, class: 'form-control ', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Rating is required" %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, :placeholder => "Title" , class: 'form-control ', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Title is required"%>
   </div>
-
-  <div class="field">
-    <%= f.label :release_year %>
-    <%= f.text_field :release_year, :placeholder => "Release Year", class: 'form-control ', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Release Year is required" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rating %>
-    <%= f.select :rating, options_for_select(AppConfig['rating'],movie.rating.to_i),{prompt: 'Select Rating'}, class: 'form-control ', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Rating is required" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</section>
