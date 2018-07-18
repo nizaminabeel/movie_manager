@@ -1,11 +1,9 @@
 <div class="row">
   <div class="col-lg-12 col-md-5 col-sm-5 col-xs-12 pull-left padding-top-30">
-      <div class="panel panel-default">
+      <div class="panel panel-info">
         <div class="panel-heading">
-          <h2 style="color: #204d74"> <%= params[:action] == 'new' ? 'Add Movie': 'Edit Movie' %></h2>
+          <h2> <%= params[:action] == 'new' ? 'Add Movie': 'Edit Movie' %></h2>
         </div>
-
-
         <%= form_for(movie,:html => {class: 'request_form','data-parsley-validate'=>''}) do |f| %>
             <% if movie.errors.any? %>
                 <div id="error_explanation">
