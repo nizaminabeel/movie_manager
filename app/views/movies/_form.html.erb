@@ -19,17 +19,17 @@
 
             <div class="form-group">
               <%= f.label :title, style:'margin-left: 15px' %>
-              <%= f.text_field :title, :placeholder => "Title" , class: "form-control", 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Title is required"%>
+              <%= f.text_field :title, :placeholder => "Title" , class: "form-control padded", 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Title is required"%>
             </div>
 
             <div class="form-group">
               <%= f.label :release_year, style:'margin-left: 15px' %>
-              <%= f.text_field :release_year, :placeholder => "Release Year", class: "form-control", 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Release Year is required" %>
+              <%= f.text_field :release_year, :placeholder => "Release Year", class: "form-control padded", 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Release Year is required" %>
             </div>
 
             <div class="form-group">
               <%= f.label :rating , style:'margin-left: 15px'%>
-              <%= f.select :rating, options_for_select(AppConfig['rating'],movie.rating.to_i),{prompt: 'Select Rating'}, class: 'form-control ', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Rating is required" %>
+              <%= f.select :rating, options_for_select(AppConfig['rating'],movie.rating.to_i),{prompt: 'Select Rating'}, class: 'form-control padded', 'data-parsley-required'=> true, 'data-parsley-required'=> true, 'data-parsley-required-message'=>"Rating is required" %>
             </div>
 
             <div class="actions">

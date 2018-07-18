@@ -27,11 +27,11 @@
             <%if @movies.present?%>
                 <% @movies.each do |movie| %>
                     <tr class="item">
-                      <td><%= movie.title %></td>
-                      <td><%= movie.release_year %></td>
-                      <td><%= movie.rating %></td>
-                      <td>
-                        <div class="pull-right"><%= link_to 'Edit', edit_movie_path(movie) , :class => 'btn btn-success' %>
+                      <td style="text-align: center"><%= movie.title %></td>
+                      <td style="text-align: center"><%= movie.release_year %></td>
+                      <td style="text-align: center"><%= movie.rating %></td>
+                      <td style="text-align: center">
+                        <div><%= link_to 'Edit', edit_movie_path(movie) , :class => 'btn btn-success' %>
                         <%= link_to 'Destroy', movie, :class => 'btn btn-danger ', method: :delete, data: { confirm: 'Are you sure?' } %></div></td>
                     </tr>
                 <% end %>
