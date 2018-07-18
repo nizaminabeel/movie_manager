@@ -17,3 +17,6 @@
 //= require turbolinks
 //= require parsley
 //= require_tree .
+$(".alert-dismissable").click(function (e) {
+    $(this).fadeOut('slow');
+});
