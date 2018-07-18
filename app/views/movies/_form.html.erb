@@ -4,7 +4,7 @@
         <div class="panel-heading">
           <h2> <%= params[:action] == 'new' ? 'Add Movie': 'Edit Movie' %></h2>
         </div>
-        <%= form_for(movie,:html => {class: 'request_form','data-parsley-validate'=>''}) do |f| %>
+        <%= form_for(movie,:html => {class: 'request_form','data-parsley-validate'=>'',id: 'my-form'}) do |f| %>
             <% if movie.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
@@ -40,3 +40,8 @@
     </div>
   </div>
 </div>
+<script>
+    $('form#my-form').on("submit", function(e) {
+        return $(this).parsley().validate();
+    });
+</script>
