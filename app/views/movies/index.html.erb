@@ -30,8 +30,9 @@
                       <td><%= movie.title %></td>
                       <td><%= movie.release_year %></td>
                       <td><%= movie.rating %></td>
-                      <td class="pull-right"><%= link_to 'Edit', edit_movie_path(movie) , :class => 'btn btn-success' %>
-                        <%= link_to 'Destroy', movie, :class => 'btn btn-danger ', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td>
+                        <div class="pull-right"><%= link_to 'Edit', edit_movie_path(movie) , :class => 'btn btn-success' %>
+                        <%= link_to 'Destroy', movie, :class => 'btn btn-danger ', method: :delete, data: { confirm: 'Are you sure?' } %></div></td>
                     </tr>
                 <% end %>
             <% end %>
