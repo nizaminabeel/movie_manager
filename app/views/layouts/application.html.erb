@@ -9,15 +9,16 @@
 </head>
 <body>
 <%= render :partial => "shared/top_navbar"%>
-<div>
-<% if notice %>
-    <p class="alert alert-success alert-dismissable"><%= notice %></p>
-<% end %>
-<% if alert %>
-    <p class="alert alert-danger alert-dismissable"><%= alert %></p>
-<% end %>
-</div>
+
 <%= yield %>
 
+<div>
+  <% if notice %>
+      <p class="alert alert-success alert-dismissable"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+      <p class="alert alert-danger alert-dismissable"><%= alert %></p>
+  <% end %>
+</div>
 </body>
 </html>
